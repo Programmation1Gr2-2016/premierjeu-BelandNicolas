@@ -23,3 +23,4 @@ D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\Exerci
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice01\obj\x86\Debug\Exercice01.csprojResolveAssemblyReference.cache
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice01\obj\x86\Debug\Exercice01.exe
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice01\obj\x86\Debug\Exercice01.pdb
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice01\bin\Windows\x86\Debug\Content\Mario.png

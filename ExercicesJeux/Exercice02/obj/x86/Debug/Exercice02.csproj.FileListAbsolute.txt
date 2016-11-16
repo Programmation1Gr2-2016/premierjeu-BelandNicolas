@@ -61,3 +61,11 @@ C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNico
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireExplosion.png
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireShoot.png
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\goodFighter.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireExplosion.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireShoot.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\goodFighter.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\bg_1_1.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Meteor.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\Bombe.xnb
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\TechnoMusic.xnb
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\TechnoMusic.wma

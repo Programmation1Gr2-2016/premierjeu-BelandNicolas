@@ -13,3 +13,15 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Sounds/TechnoMusic.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/TechnoMusic.mp3
+
+#begin Sounds/Bombe.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Bombe.wav
+

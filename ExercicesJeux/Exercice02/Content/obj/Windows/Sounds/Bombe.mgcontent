@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/Bombe.wav</SourceFile>
+  <SourceTime>2016-11-16T15:24:36.7795662-05:00</SourceTime>
+  <DestFile>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/Sounds/Bombe.xnb</DestFile>
+  <DestTime>2016-11-16T15:55:31.038494-05:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2016-03-30T02:36:08-04:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

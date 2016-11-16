@@ -16,15 +16,8 @@ namespace Exercice02
         public Texture2D sprite;
         public bool estVivant;
         public bool isDirection = false;
+        public Vector2 direction;
 
-        //ANIMATION
-        public Rectangle positionAttaque;
-        public bool estVivantAttaque;
-        public int vitesseAttaque;
-        public Texture2D sprites;
-        public Texture2D sprites1;
-        public Texture2D sprites2;
-        public Texture2D sprites3;
-        public int timeFrame;
+        //METEOR
     }
 }

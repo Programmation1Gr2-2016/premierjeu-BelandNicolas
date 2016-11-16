@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,6 +15,8 @@ namespace Exercice01
     public class Game1 : Game
     {
         bool isDirection = false;
+        static public int totalTimeFrame = 30;
+        public int timeByFrame = totalTimeFrame / 3;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -65,14 +72,20 @@ namespace Exercice01
             //Chargement de l'ennemie
             ennemie = new GameObject();
             ennemie.estVivant = true;
-            ennemie.vitesse = 5;
+            ennemie.vitesse = 10;
+            ennemie.randomMouvement = new Random();
             ennemie.sprite = Content.Load<Texture2D>("EnnemieMonster.png");
             ennemie.position = ennemie.sprite.Bounds;
             //Chargement FireBall
             fireBall = new GameObject();
             fireBall.estVivant = true;
-            fireBall.vitesse = 5;
+            fireBall.vitesse = 10;
+            fireBall.timeFrame = 0;
             fireBall.sprite = Content.Load<Texture2D>("FireBall/fireball1.png");
+            fireBall.sprites = Content.Load<Texture2D>("FireBall/fireball1.png");
+            fireBall.sprites1 = Content.Load<Texture2D>("FireBall/fireball1.png");
+            fireBall.sprites2 = Content.Load<Texture2D>("FireBall/fireball2.png");
+            fireBall.sprites3 = Content.Load<Texture2D>("FireBall/fireball3.png");
             fireBall.position = fireBall.sprite.Bounds;
 
         }
@@ -93,25 +106,28 @@ namespace Exercice01
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            #region MouvementHeros
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-            {
-                heros.position.X += heros.vitesse;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-            {
-                heros.position.X -= heros.vitesse;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-            {
-                heros.position.Y -= heros.vitesse;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-            {
-                heros.position.Y += heros.vitesse;
+            #region MouvementHeros
+            if (heros.estVivant == true)
+            { 
+                if (Keyboard.GetState().IsKeyDown(Keys.D))
+                {
+                    heros.position.X += heros.vitesse;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.A))
+                {
+                    heros.position.X -= heros.vitesse;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                {
+                    heros.position.Y -= heros.vitesse;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.S))
+                {
+                    heros.position.Y += heros.vitesse;
+                }
             }
             #endregion
             #region EnnemieMouvement
@@ -132,6 +148,8 @@ namespace Exercice01
             UpdateHeros();
             UpdateEnnemie();
             UpdateFireBall();
+            AnimatedFireBall();
+            RandomMouvementEnnemie();
             base.Update(gameTime);
         }
 
@@ -164,7 +182,7 @@ namespace Exercice01
             {
                 isDirection = true;
             }
-            else if(ennemie.position.X + ennemie.sprite.Bounds.Width > fenetre.Right)
+            else if (ennemie.position.X + ennemie.sprite.Bounds.Width > fenetre.Right)
             {
                 isDirection = false;
             }
@@ -185,6 +203,36 @@ namespace Exercice01
                 fireBall.estVivant = false;
             }
         }
+        protected void AnimatedFireBall()
+        {
+            if (fireBall.timeFrame < timeByFrame)
+            {
+                fireBall.sprites = fireBall.sprites1;
+            }
+            else if (fireBall.timeFrame < timeByFrame * 2)
+            {
+                fireBall.sprites = fireBall.sprites2;
+            }
+            else if (fireBall.timeFrame < timeByFrame * 3)
+            {
+                fireBall.sprites = fireBall.sprites3;
+            }
+
+            fireBall.timeFrame++;
+            if (fireBall.timeFrame == totalTimeFrame)
+            {
+                fireBall.timeFrame = 0;
+            }
+        }
+        protected void RandomMouvementEnnemie()
+        {
+            int voyeur = ennemie.randomMouvement.Next(0, 150);
+            
+            if (voyeur == 50)
+            {
+                isDirection = !isDirection;
+            }
+        }
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -201,7 +249,7 @@ namespace Exercice01
                 spriteBatch.Draw(heros.sprite, heros.position, Color.White);
             }
             spriteBatch.Draw(ennemie.sprite, ennemie.position, Color.White);
-            spriteBatch.Draw(fireBall.sprite, fireBall.position, Color.White);
+            spriteBatch.Draw(fireBall.sprites, fireBall.position, Color.White);
 
             spriteBatch.End();
             base.Draw(gameTime);

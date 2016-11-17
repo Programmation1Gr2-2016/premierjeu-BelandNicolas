@@ -18,7 +18,7 @@ namespace Exercice02
     {
         public static int TOTAL_TIME_FRAME = 30;
         public int timeByFrame = TOTAL_TIME_FRAME / 3;
-
+        int timerScore = 0;
         const int SCREEN_WIDTH = 1200;
         const int SCREEN_HEIGHT = 600;
 
@@ -35,6 +35,9 @@ namespace Exercice02
 
         SoundEffect son;
         SoundEffectInstance bombe;
+        Song song;
+
+        SpriteFont timerScoreSpriteFront;
 
         public Game1()
         {
@@ -73,18 +76,23 @@ namespace Exercice02
             //Sounds 
             son = Content.Load<SoundEffect>("Sounds\\Bombe");
             bombe = son.CreateInstance();
-            Song song = Content.Load<Song>("Sounds\\TechnoMusic");
+            song = Content.Load<Song>("Sounds\\TechnoMusic");
             MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.1f;
             MediaPlayer.Play(song);
-            
+
+            //Texte
+            timerScoreSpriteFront = Content.Load<SpriteFont>("TimerScore");
 
             //BackGround
             backGround = Content.Load<Texture2D>("bg_1_1.png");
             randomMouvement = new Random();
 
+            //Fenêtre
             fenetre = graphics.GraphicsDevice.Viewport.Bounds;
             fenetre.Width = SCREEN_WIDTH;
             fenetre.Height = SCREEN_HEIGHT;
+
             //Chargement du héros
             heros = new GameObject();
             heros.estVivant = true;
@@ -93,7 +101,6 @@ namespace Exercice02
             heros.position = heros.sprite.Bounds;
             heros.position.X = fenetre.Right / 2;
             heros.position.Y = fenetre.Bottom / 2;
-           
 
             //Chargement meteors
             meteors = new GameObject[NBENEMIE];
@@ -107,7 +114,7 @@ namespace Exercice02
                 meteors[i].position.X = randomMouvement.Next(0, SCREEN_WIDTH - 100);
                 meteors[i].position.Y = randomMouvement.Next(0, SCREEN_HEIGHT - 100);
                 meteors[i].direction.X = randomMouvement.Next(-4, 5);
-                meteors[i].direction.Y = randomMouvement.Next(-4, 5); 
+                meteors[i].direction.Y = randomMouvement.Next(-4, 5);
             }
 
         }
@@ -156,37 +163,20 @@ namespace Exercice02
                 {
                     heros.position.Y += heros.vitesse;
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.Space))
-                {
-                    //Attaque du vaisseau
-                }
             }
-            #endregion
-            #region EnnemieMouvement
-            if (nombreMeteor != 0)
-            {
-                for (int i = 0; i < meteors.Length; i++)
-                {
-                    meteors[i].position.X += (int)meteors[i].direction.X;
-                    meteors[i].position.Y += (int)meteors[i].direction.Y;
-                } 
-            }
-            #endregion
             if (Keyboard.GetState().IsKeyDown(Keys.R))
             {
                 heros.estVivant = true;
             }
-            
-            // TODO: Add your update logic here
-            UpdateHeros();
-            if (nombreMeteor != 0)
+            #endregion
+            #region EnnemieMouvement
+            for (int i = 0; i < meteors.Length; i++)
             {
-                UpdateEnnemie(); 
+                meteors[i].position.X += (int)meteors[i].direction.X;
+                meteors[i].position.Y += (int)meteors[i].direction.Y;
             }
-            base.Update(gameTime);
-        }
-        protected void UpdateHeros()
-        {
+            #endregion
+            #region HerosUpdate
             if (heros.position.X < fenetre.Left)
             {
                 heros.position.X = fenetre.Left;
@@ -203,20 +193,23 @@ namespace Exercice02
             {
                 heros.position.Y = fenetre.Bottom - heros.sprite.Bounds.Height;
             }
-            if (nombreMeteor != 0)
+
+            if (heros.estVivant == true)
             {
-                if (heros.estVivant == true)
+                for (int i = 0; i < meteors.Length; i++)
                 {
-                    for (int i = 0; i < meteors.Length; i++)
+                    if (heros.position.Intersects(meteors[i].position) && meteors[i].estVivant == true)
                     {
-                        if (heros.position.Intersects(meteors[i].position))
-                        {
-                            heros.estVivant = false;
-                            bombe.Play();
-                        }
+                        heros.estVivant = false;
+                        bombe.Play();
+                        timerScore = gameTime.TotalGameTime.Seconds;
                     }
-                } 
+                }
             }
+            #endregion
+            // TODO: Add your update logic here
+            UpdateEnnemie();
+            base.Update(gameTime);
         }
         protected void UpdateEnnemie()
         {
@@ -241,7 +234,6 @@ namespace Exercice02
             }
         }
 
-
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -258,18 +250,19 @@ namespace Exercice02
             {
                 spriteBatch.Draw(heros.sprite, heros.position, Color.White);
             }
-            if (nombreMeteor != 0)
+
+            for (int i = 0; i < meteors.Length; i++)
             {
-                for (int i = 0; i < meteors.Length; i++)
+                if (meteors[i].estVivant == true)
                 {
-                    if (meteors[i].estVivant == true)
-                    {
-                        spriteBatch.Draw(meteors[i].sprite, meteors[i].position, Color.White); 
-                    }
-                } 
+                    spriteBatch.Draw(meteors[i].sprite, meteors[i].position, Color.White);
+                }
             }
 
-
+            if (heros.estVivant == false)
+            {
+                spriteBatch.DrawString(timerScoreSpriteFront, "Tu as survecu : " + timerScore + " seconde", new Vector2(100, 100), Color.White);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }

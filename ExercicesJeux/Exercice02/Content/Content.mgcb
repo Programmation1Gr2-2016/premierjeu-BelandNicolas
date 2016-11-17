@@ -25,3 +25,9 @@
 /processorParam:Quality=Best
 /build:Sounds/Bombe.wav
 
+#begin TimerScore.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:TimerScore.spritefont
+

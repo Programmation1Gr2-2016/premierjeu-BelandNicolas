@@ -30,11 +30,6 @@ D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\Exerci
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\obj\x86\Debug\Exercice02.csprojResolveAssemblyReference.cache
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\obj\x86\Debug\Exercice02.exe
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\obj\x86\Debug\Exercice02.pdb
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\EnnemieMonster.png
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireBall\fireball1.png
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireBall\fireball2.png
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireBall\fireball3.png
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Mario.png
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Exercice02.exe
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Exercice02.pdb
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -58,8 +53,6 @@ C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNico
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\obj\x86\Debug\Exercice02.csprojResolveAssemblyReference.cache
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireExplosion.png
-C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireShoot.png
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\goodFighter.png
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireExplosion.png
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\FireShoot.png
@@ -69,3 +62,9 @@ D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\Exerci
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\Bombe.xnb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\TechnoMusic.xnb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\TechnoMusic.wma
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\Bombe.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\TechnoMusic.wma
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Sounds\TechnoMusic.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\bg_1_1.png
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\Meteor.png
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\TimerScore.xnb

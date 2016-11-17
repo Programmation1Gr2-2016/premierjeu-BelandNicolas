@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/TechnoMusic.mp3</SourceFile>
+  <SourceFile>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/TechnoMusic.mp3</SourceFile>
   <SourceTime>2016-11-15T22:43:02-05:00</SourceTime>
-  <DestFile>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/Sounds/TechnoMusic.xnb</DestFile>
-  <DestTime>2016-11-16T15:55:30.6543828-05:00</DestTime>
+  <DestFile>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/Sounds/TechnoMusic.xnb</DestFile>
+  <DestTime>2016-11-16T19:50:36.0412235-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/Sounds/TechnoMusic.wma</string>
+    <string>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/Sounds/TechnoMusic.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>

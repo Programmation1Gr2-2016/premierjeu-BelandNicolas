@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/TimerScore.spritefont</SourceFile>
+  <SourceFile>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/TimerScore.spritefont</SourceFile>
   <SourceTime>2016-03-30T02:36:08-04:00</SourceTime>
-  <DestFile>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/TimerScore.xnb</DestFile>
-  <DestTime>2016-11-16T20:14:17.6929259-05:00</DestTime>
+  <DestFile>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/bin/Windows/TimerScore.xnb</DestFile>
+  <DestTime>2016-11-17T13:04:03.2066348-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

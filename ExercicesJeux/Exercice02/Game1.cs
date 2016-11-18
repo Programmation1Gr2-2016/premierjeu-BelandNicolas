@@ -137,9 +137,10 @@ namespace Exercice02
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            //Spawn meteor
+
             if (nombreMeteor * 10 < gameTime.TotalGameTime.Seconds && nombreMeteor < NBENEMIE)
             {
+                //Spawn meteor pour chacun
                 meteors[nombreMeteor].estVivant = true;
                 nombreMeteor++;
             }
@@ -147,6 +148,7 @@ namespace Exercice02
             #region MouvementHeros
             if (heros.estVivant == true)
             {
+                //Faire bouger le héros quand il est vivant
                 if (Keyboard.GetState().IsKeyDown(Keys.D))
                 {
                     heros.position.X += heros.vitesse;
@@ -166,17 +168,20 @@ namespace Exercice02
             }
             if (Keyboard.GetState().IsKeyDown(Keys.R))
             {
+                //Réaparaitre quand on est mort
                 heros.estVivant = true;
             }
             #endregion
             #region EnnemieMouvement
             for (int i = 0; i < meteors.Length; i++)
             {
+                //Calcule du déplacement pour chaque meteors
                 meteors[i].position.X += (int)meteors[i].direction.X;
                 meteors[i].position.Y += (int)meteors[i].direction.Y;
             }
             #endregion
             #region HerosUpdate
+            //Détermine collision des bords de fenêtre
             if (heros.position.X < fenetre.Left)
             {
                 heros.position.X = fenetre.Left;
@@ -193,16 +198,17 @@ namespace Exercice02
             {
                 heros.position.Y = fenetre.Bottom - heros.sprite.Bounds.Height;
             }
-
+            //Détecte Collision avec meteors
             if (heros.estVivant == true)
             {
                 for (int i = 0; i < meteors.Length; i++)
                 {
                     if (heros.position.Intersects(meteors[i].position) && meteors[i].estVivant == true)
                     {
+                        //Mort si il touche et calcule du temps écoulé
                         heros.estVivant = false;
                         bombe.Play();
-                        timerScore = gameTime.TotalGameTime.Seconds;
+                        timerScore = gameTime.TotalGameTime.Seconds + gameTime.TotalGameTime.Minutes * 60;
                     }
                 }
             }
@@ -215,6 +221,7 @@ namespace Exercice02
         {
             for (int i = 0; i < meteors.Length; i++)
             {
+                //Détection des bords de la fenêtre et inversement de direction
                 if (meteors[i].position.X < fenetre.Left)
                 {
                     meteors[i].direction.X = -meteors[i].direction.X;
@@ -248,6 +255,7 @@ namespace Exercice02
 
             if (heros.estVivant == true)
             {
+                //Dessine le héros si il est vivant
                 spriteBatch.Draw(heros.sprite, heros.position, Color.White);
             }
 
@@ -255,12 +263,14 @@ namespace Exercice02
             {
                 if (meteors[i].estVivant == true)
                 {
+                    //Dessine chacun des meteors si ils sont vivant
                     spriteBatch.Draw(meteors[i].sprite, meteors[i].position, Color.White);
                 }
             }
 
             if (heros.estVivant == false)
             {
+                //Dessine le texte avec le temps écouler quand le héros est mort
                 spriteBatch.DrawString(timerScoreSpriteFront, "Tu as survecu : " + timerScore + " seconde", new Vector2(100, 100), Color.White);
             }
             spriteBatch.End();

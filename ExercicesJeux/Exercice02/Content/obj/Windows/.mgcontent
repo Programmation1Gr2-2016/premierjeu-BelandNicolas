@@ -4,8 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/TechnoMusic.mp3</File>
-    <File>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/Bombe.wav</File>
-    <File>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/TimerScore.spritefont</File>
+    <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/TechnoMusic.mp3</File>
+    <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/Sounds/Bombe.wav</File>
+    <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice02/Content/TimerScore.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

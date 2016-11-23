@@ -19,11 +19,15 @@ namespace Exercice02
         public static int TOTAL_TIME_FRAME = 30;
         public int timeByFrame = TOTAL_TIME_FRAME / 3;
         int timerScore = 0;
+        int timeGame = 0;
         const int SCREEN_WIDTH = 1200;
-        const int SCREEN_HEIGHT = 600;
+        const int SCREEN_HEIGHT = 700;
 
         const int NBENEMIE = 3;
         int nombreMeteor = 0;
+        string messageGameOver = "*********************************\n*                  Game Over !!!                  *\n*********************************";
+        string messageTimeGame = "";
+        string messageTimeScore = "";
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -38,6 +42,7 @@ namespace Exercice02
         Song song;
 
         SpriteFont timerScoreSpriteFront;
+        SpriteFont gameOver;
 
         public Game1()
         {
@@ -83,6 +88,7 @@ namespace Exercice02
 
             //Texte
             timerScoreSpriteFront = Content.Load<SpriteFont>("TimerScore");
+            gameOver = Content.Load<SpriteFont>("GameOver");
 
             //BackGround
             backGround = Content.Load<Texture2D>("bg_1_1.png");
@@ -96,11 +102,12 @@ namespace Exercice02
             //Chargement du héros
             heros = new GameObject();
             heros.estVivant = true;
-            heros.vitesse = 5;
+            heros.vitesse = 7;
             heros.sprite = Content.Load<Texture2D>("goodFighter.png");
             heros.position = heros.sprite.Bounds;
             heros.position.X = fenetre.Right / 2;
             heros.position.Y = fenetre.Bottom / 2;
+            heros.angle = 0;
 
             //Chargement meteors
             meteors = new GameObject[NBENEMIE];
@@ -137,7 +144,8 @@ namespace Exercice02
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            timeGame = gameTime.TotalGameTime.Seconds + gameTime.TotalGameTime.Minutes * 60;
+            messageTimeGame = "Temps de jeu : " + timeGame + " seconde";
             if (nombreMeteor * 10 < gameTime.TotalGameTime.Seconds && nombreMeteor < NBENEMIE)
             {
                 //Spawn meteor pour chacun
@@ -151,19 +159,37 @@ namespace Exercice02
                 //Faire bouger le héros quand il est vivant
                 if (Keyboard.GetState().IsKeyDown(Keys.D))
                 {
-                    heros.position.X += heros.vitesse;
+                    heros.angle += 0.1f;
+                    if (RadianToDegree(heros.angle) > 360.0)
+                    {
+                        heros.angle = 0.0f;
+                    }
+                    else if (RadianToDegree(heros.angle) <= 0.0f)
+                    {
+                        heros.angle = (float)DegreeToRadian(360.0f);
+                    }
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.A))
                 {
-                    heros.position.X -= heros.vitesse;
+                    heros.angle -= 0.1f;
+                    if (RadianToDegree(heros.angle) > 360.0)
+                    {
+                        heros.angle = 0.0f;
+                    }
+                    else if (RadianToDegree(heros.angle) <= 0.0f)
+                    {
+                        heros.angle = (float)DegreeToRadian(360.0f);
+                    }
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.W))
                 {
-                    heros.position.Y -= heros.vitesse;
+                    heros.position.Y -= (int)ComposanteX(heros.angle, heros.vitesse);
+                    heros.position.X += (int)ComposanteY(heros.angle, heros.vitesse);
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.S))
                 {
-                    heros.position.Y += heros.vitesse;
+                    heros.position.Y += (int)ComposanteX(heros.angle, heros.vitesse);
+                    heros.position.X -= (int)ComposanteY(heros.angle, heros.vitesse);
                 }
             }
             if (Keyboard.GetState().IsKeyDown(Keys.R))
@@ -209,6 +235,7 @@ namespace Exercice02
                         heros.estVivant = false;
                         bombe.Play();
                         timerScore = gameTime.TotalGameTime.Seconds + gameTime.TotalGameTime.Minutes * 60;
+                        messageTimeScore = "Tu as survecu : " + timerScore + " seconde";
                     }
                 }
             }
@@ -256,7 +283,7 @@ namespace Exercice02
             if (heros.estVivant == true)
             {
                 //Dessine le héros si il est vivant
-                spriteBatch.Draw(heros.sprite, heros.position, Color.White);
+                spriteBatch.Draw(heros.sprite, new Rectangle(heros.position.X + heros.sprite.Bounds.Width / 2, heros.position.Y + heros.sprite.Bounds.Height / 2, heros.sprite.Bounds.Width, heros.sprite.Bounds.Height), null, Color.White, heros.angle, new Vector2(heros.sprite.Bounds.Width / 2, heros.sprite.Bounds.Height / 2), SpriteEffects.None, 0);
             }
 
             for (int i = 0; i < meteors.Length; i++)
@@ -267,14 +294,36 @@ namespace Exercice02
                     spriteBatch.Draw(meteors[i].sprite, meteors[i].position, Color.White);
                 }
             }
-
             if (heros.estVivant == false)
             {
                 //Dessine le texte avec le temps écouler quand le héros est mort
-                spriteBatch.DrawString(timerScoreSpriteFront, "Tu as survecu : " + timerScore + " seconde", new Vector2(100, 100), Color.White);
+                spriteBatch.DrawString(timerScoreSpriteFront, messageTimeScore, new Vector2(fenetre.Width / 2 - timerScoreSpriteFront.MeasureString(messageTimeScore).X / 2, fenetre.Height / 2 + gameOver.MeasureString(messageGameOver).Y), Color.White);
+                spriteBatch.DrawString(gameOver, messageGameOver, new Vector2((fenetre.Width / 2 - gameOver.MeasureString(messageGameOver).X / 2), (fenetre.Height / 2 - gameOver.MeasureString(messageGameOver).Y / 2)), Color.White);
             }
+            else
+            {
+                spriteBatch.DrawString(timerScoreSpriteFront, messageTimeGame, new Vector2(fenetre.Width / 10, fenetre.Height / 10), Color.White);
+            }
+            spriteBatch.DrawString(timerScoreSpriteFront, "Orientation : " + RadianToDegree(heros.angle).ToString() + "\nValeur X : " + heros.position.X + "\nValeur Y : " + heros.position.Y, new Vector2(200, 200), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+        private double DegreeToRadian(double angle)
+        {
+            return Math.PI * angle / 180.0;
+        }
+        private double RadianToDegree(double angle)
+        {
+            return angle * (180.0 / Math.PI);
+        }
+        private double ComposanteX(double angle, double grandeur)
+        {
+            //Donne la composante X avec COS pour la direction
+            return grandeur * Math.Cos(angle);
+        }
+        private double ComposanteY(double angle, double grandeur)
+        {
+            return grandeur * Math.Sin(angle);
         }
     }
 }

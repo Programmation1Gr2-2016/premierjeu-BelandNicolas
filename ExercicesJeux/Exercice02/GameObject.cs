@@ -17,6 +17,7 @@ namespace Exercice02
         public bool estVivant;
         public bool isDirection = false;
         public Vector2 direction;
+        public float angle;
 
         //METEOR
     }

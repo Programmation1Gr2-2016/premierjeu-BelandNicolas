@@ -31,3 +31,9 @@
 /processorParam:TextureFormat=Compressed
 /build:TimerScore.spritefont
 
+#begin GameOver.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:GameOver.spritefont
+

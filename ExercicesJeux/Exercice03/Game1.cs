@@ -21,6 +21,8 @@ namespace Exercice03
         KeyboardState previousKeys = new KeyboardState();
         GameObjectAnime rambo;
 
+        GameObjectTile fond = new GameObjectTile();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -56,12 +58,16 @@ namespace Exercice03
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
 
+
+            fond.sprite = Content.Load<Texture2D>("TileSet.png");
+
+
             rambo = new GameObjectAnime();
             rambo.direction = Vector2.Zero;
             rambo.vitesse.X = 2;
             rambo.objetState = GameObjectAnime.etats.attenteDroite;
             rambo.position = new Rectangle(350, 250, 65, 65);   //Position initiale de Rambo
-            rambo.sprite = Content.Load<Texture2D>("Rambo.png");
+            rambo.sprite = Content.Load<Texture2D>("Bomberman.png");
 
         }
 
@@ -111,11 +117,21 @@ namespace Exercice03
                 rambo.direction.X = 0;
                 rambo.objetState = GameObjectAnime.etats.attenteGauche;
             }
+            if (keys.IsKeyDown(Keys.Up))
+            {
+                rambo.direction.Y = 2;
+
+            }
+            if (keys.IsKeyDown(Keys.Down))
+            {
+                rambo.direction.Y = -2;
+
+            }
 
             //On appelle la méthode Update de Rambo qui permet de gérer les états
             rambo.Update(gameTime);
             previousKeys = keys;
-            
+
             base.Update(gameTime);
         }
 
@@ -131,10 +147,10 @@ namespace Exercice03
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+            fond.Draw(gameTime, spriteBatch);
 
 
             spriteBatch.Draw(rambo.sprite, rambo.position, rambo.spriteAfficher, Color.White);
-
 
             spriteBatch.End();
             base.Draw(gameTime);

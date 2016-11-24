@@ -25,3 +25,6 @@ D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\Exerci
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.pdb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\BackGroundLarge.jpg
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\Bomberman.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\TestTileRef.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\TileSet.png

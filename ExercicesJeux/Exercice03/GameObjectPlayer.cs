@@ -8,54 +8,52 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Exercice03
 {
-    class GameObjectAnime
+    class GameObjectPlayer
     {
+        //CARACTÉRISTIQUES
         public Texture2D sprite;
-        public Vector2 vitesse;
         public Vector2 direction;
+        public Vector2 vitesse;
         public Rectangle position;
         public Rectangle spriteAfficher; //Le rectangle affiché à l'écran
+        public bool estVivant;
 
-        public enum etats
-        {
-            attenteDroite,
-            attenteGauche,
-            attenteFace,
-            attenteArriere,
-            runDroite,
-            runGauche,
-            runFace,
-            runArriere
-        }
+        public enum etats { attenteDroite, attenteGauche, runDroite, runGauche, attenteHaut, runHaut, attenteBas, runBas };
         public etats objetState;
-
 
         //Compteur qui changera le sprite affiché
         private int cpt = 0;
 
         //GESTION DES TABLEAUX DE SPRITES (chaque sprite est un rectangle dans le tableau)
         int runState = 0; //État de départ
-        int nbEtatRun = 3; //Combien il y a de rectangles pour l’état “courrir”
-
-
+        int nbEtatRun = 4; //Combien il y a de rectangles pour l’état “courrir”
         public Rectangle[] tabRunDroite = {
             new Rectangle(69, 2, 17, 23),
-            new Rectangle(86, 2, 17, 23),
-            new Rectangle(103, 2, 17, 23),
-            };
-
+            new Rectangle(87, 2, 17, 23),
+            new Rectangle(69, 2, 17, 23),
+            new Rectangle(104, 2, 17, 23),
+        };
 
         public Rectangle[] tabRunGauche = {
             new Rectangle(179, 2, 17, 23),
-            new Rectangle(198, 2, 17, 23),
-            new Rectangle(216, 2, 17, 23)
-             };
+            new Rectangle(197, 2, 17, 23),
+            new Rectangle(179, 2, 17, 23),
+            new Rectangle(215, 2, 17, 23)
 
-        public Rectangle[] tabRunArriere =
-        {
+        };
+
+        public Rectangle[] tabRunHaut = {
             new Rectangle(14, 2, 17, 23),
-            new Rectangle(23, 2, 17, 23),
+            new Rectangle(31, 2, 17, 23),
+            new Rectangle(14, 2, 17, 23),
             new Rectangle(48, 2, 17, 23),
+        };
+
+        public Rectangle[] tabRunBas = {
+            new Rectangle(124, 2, 17, 23),
+            new Rectangle(141, 2, 17, 23),
+            new Rectangle(124, 2, 17, 23),
+            new Rectangle(158, 2, 17, 23),
         };
 
         int waitState = 0;
@@ -64,13 +62,20 @@ namespace Exercice03
             new Rectangle(69, 2, 17, 23)
         };
 
-
         public Rectangle[] tabAttenteGauche =
         {
             new Rectangle(179, 2, 17, 23)
         };
 
-        //METHODS
+        public Rectangle[] tabAttenteHaut =
+        {
+            new Rectangle(14, 2, 17, 23)
+        };
+
+        public Rectangle[] tabAttenteBas =
+        {
+            new Rectangle(124, 2, 17, 23)
+        };
 
         public virtual void Update(GameTime gameTime)
         {
@@ -90,7 +95,22 @@ namespace Exercice03
             {
                 spriteAfficher = tabRunGauche[runState];
             }
-
+            if (objetState == etats.attenteHaut)
+            {
+                spriteAfficher = tabAttenteHaut[waitState];
+            }
+            if (objetState == etats.runHaut)
+            {
+                spriteAfficher = tabRunHaut[runState];
+            }
+            if (objetState == etats.attenteBas)
+            {
+                spriteAfficher = tabAttenteBas[waitState];
+            }
+            if (objetState == etats.runBas)
+            {
+                spriteAfficher = tabRunBas[runState];
+            }
             //Compteur permettant de gérer le changement d'images
             cpt++;
             if (cpt == 6) //Vitesse défilement
@@ -105,5 +125,7 @@ namespace Exercice03
             }
         }
 
+
     }
 }
+

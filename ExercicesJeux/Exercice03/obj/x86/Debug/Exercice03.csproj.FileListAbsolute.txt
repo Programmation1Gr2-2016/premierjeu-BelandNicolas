@@ -1,4 +1,5 @@
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\Rambo.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\Bomberman.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\TileSet.png
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Exercice03.exe
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Exercice03.pdb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -21,10 +22,7 @@ D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\Exerci
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\SharpDX.XInput.xml
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.exe
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.pdb
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\BackGroundLarge.jpg
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\Bomberman.png
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\TestTileRef.png
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\TileSet.png
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\DebugFont.xnb

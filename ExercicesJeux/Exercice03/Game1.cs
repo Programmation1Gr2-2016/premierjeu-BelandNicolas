@@ -14,19 +14,28 @@ namespace Exercice03
     /// </summary>
     public class Game1 : Game
     {
+        SpriteFont debugFont;
+        string debugTexte = "";
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
         KeyboardState keys = new KeyboardState();
         KeyboardState previousKeys = new KeyboardState();
-        GameObjectAnime rambo;
 
-        GameObjectTile fond = new GameObjectTile();
+
+        // Fond de tuiles
+        GameObjectTile fond;
+        GameObjectPlayer heros;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            this.graphics.PreferredBackBufferWidth = (int)(Settings.SCREEN_WIDTH * Settings.PIXEL_RATIO);
+            this.graphics.PreferredBackBufferHeight = (int)(Settings.SCREEN_HEIGHT * Settings.PIXEL_RATIO);
+            this.graphics.IsFullScreen = Settings.IS_FULLSCREEN;
+            this.IsMouseVisible = Settings.IS_MOUSE_VISIBLE;
         }
 
         /// <summary>
@@ -39,12 +48,6 @@ namespace Exercice03
         {
             // TODO: Add your initialization logic here
 
-            this.graphics.PreferredBackBufferWidth = graphics.GraphicsDevice.DisplayMode.Width;
-            this.graphics.PreferredBackBufferHeight = graphics.GraphicsDevice.DisplayMode.Height;
-
-            this.Window.Position = new Point(0, 0);
-            this.graphics.ApplyChanges();
-
             base.Initialize();
         }
 
@@ -56,18 +59,20 @@ namespace Exercice03
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            debugFont = Content.Load<SpriteFont>("DebugFont");
+
             // TODO: use this.Content to load your game content here
+            fond = new GameObjectTile();
+            fond.texture = Content.Load<Texture2D>("TileSet.png");
 
-
-            fond.sprite = Content.Load<Texture2D>("TileSet.png");
-
-
-            rambo = new GameObjectAnime();
-            rambo.direction = Vector2.Zero;
-            rambo.vitesse.X = 2;
-            rambo.objetState = GameObjectAnime.etats.attenteDroite;
-            rambo.position = new Rectangle(350, 250, 65, 65);   //Position initiale de Rambo
-            rambo.sprite = Content.Load<Texture2D>("Bomberman.png");
+            heros = new GameObjectPlayer();
+            heros.estVivant = true;
+            heros.vitesse = new Vector2(5, 5);
+            heros.direction = Vector2.Zero;
+            heros.objetState = GameObjectPlayer.etats.attenteDroite;
+            heros.position = new Rectangle(350, 250, 128, 128);   //Position initiale de Rambo
+            heros.sprite = Content.Load<Texture2D>("Bomberman.png");
 
         }
 
@@ -78,7 +83,6 @@ namespace Exercice03
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-
         }
 
         /// <summary>
@@ -88,48 +92,85 @@ namespace Exercice03
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            keys = Keyboard.GetState();
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            heros.position.X += (int)(heros.vitesse.X * heros.direction.X);
+            heros.position.Y += (int)(heros.vitesse.Y * heros.direction.Y);
+
+            if (keys.IsKeyDown(Keys.D))
+            {
+                heros.direction.X = 2;
+                heros.objetState = GameObjectPlayer.etats.runDroite;
+            }
+            if (keys.IsKeyUp(Keys.D) && previousKeys.IsKeyDown(Keys.D))
+            {
+                heros.direction.X = 0;
+                heros.objetState = GameObjectPlayer.etats.attenteDroite;
+            }
+            if (keys.IsKeyDown(Keys.A))
+            {
+                heros.direction.X = -2;
+                heros.objetState = GameObjectPlayer.etats.runGauche;
+            }
+            if (keys.IsKeyUp(Keys.A) && previousKeys.IsKeyDown(Keys.A))
+            {
+                heros.direction.X = 0;
+                heros.objetState = GameObjectPlayer.etats.attenteGauche;
+            }
+            if (keys.IsKeyDown(Keys.W))
+            {
+                heros.direction.Y = -2;
+                heros.objetState = GameObjectPlayer.etats.runHaut;
+            }
+            if (keys.IsKeyUp(Keys.W) && previousKeys.IsKeyDown(Keys.W))
+            {
+                heros.direction.Y = 0;
+                heros.objetState = GameObjectPlayer.etats.attenteHaut;
+            }
+            if (keys.IsKeyDown(Keys.S))
+            {
+                heros.direction.Y = 2;
+                heros.objetState = GameObjectPlayer.etats.runBas;
+            }
+            if (keys.IsKeyUp(Keys.S) && previousKeys.IsKeyDown(Keys.S))
+            {
+                heros.direction.Y = 0;
+                heros.objetState = GameObjectPlayer.etats.attenteBas;
+            }
+
+
             // TODO: Add your update logic here
 
-            keys = Keyboard.GetState();
-            rambo.position.X += (int)(rambo.vitesse.X * rambo.direction.X);
-
-
-            if (keys.IsKeyDown(Keys.Right))
+            for (int ligne = 0; ligne < fond.map.GetLength(0); ligne++)
             {
-                rambo.direction.X = 2;
-                rambo.objetState = GameObjectAnime.etats.runDroite;
-            }
-            if (keys.IsKeyUp(Keys.Right) && previousKeys.IsKeyDown(Keys.Right))
-            {
-                rambo.direction.X = 0;
-                rambo.objetState = GameObjectAnime.etats.attenteDroite;
-            }
-            if (keys.IsKeyDown(Keys.Left))
-            {
-                rambo.direction.X = -2;
-                rambo.objetState = GameObjectAnime.etats.runGauche;
-            }
-            if (keys.IsKeyUp(Keys.Left) && previousKeys.IsKeyDown(Keys.Left))
-            {
-                rambo.direction.X = 0;
-                rambo.objetState = GameObjectAnime.etats.attenteGauche;
-            }
-            if (keys.IsKeyDown(Keys.Up))
-            {
-                rambo.direction.Y = 2;
-
-            }
-            if (keys.IsKeyDown(Keys.Down))
-            {
-                rambo.direction.Y = -2;
-
+                for (int colonne = 0; colonne < fond.map.GetLength(1); colonne++)
+                {
+                    Rectangle tuile = new Rectangle();
+                    tuile.X = colonne * GameObjectTile.LARGEUR_TUILE - (int)(heros.vitesse.X * heros.direction.X);
+                    tuile.Y = ligne * GameObjectTile.HAUTEUR_TUILE - (int)(heros.vitesse.Y * heros.direction.Y);
+                    tuile.Width = GameObjectTile.LARGEUR_TUILE;
+                    tuile.Height = GameObjectTile.HAUTEUR_TUILE;
+                    if (tuile.Intersects(heros.position))
+                    {
+                        switch (fond.map[ligne, colonne])
+                        {
+                            case 1:          // ne rien faire
+                                debugTexte = "Collision";
+                                break;
+                            case 2:        // empêcher le mouvement
+                                break;
+                            case 3:        // faire une autre action...
+                                debugTexte = "Vide";
+                                break;
+                        }
+                    }
+                }
             }
 
-            //On appelle la méthode Update de Rambo qui permet de gérer les états
-            rambo.Update(gameTime);
+            heros.Update(gameTime);
             previousKeys = keys;
 
             base.Update(gameTime);
@@ -144,15 +185,15 @@ namespace Exercice03
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
-            fond.Draw(gameTime, spriteBatch);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Matrix.CreateScale(Settings.PIXEL_RATIO));
 
 
-            spriteBatch.Draw(rambo.sprite, rambo.position, rambo.spriteAfficher, Color.White);
+            fond.Draw(spriteBatch);
+            spriteBatch.Draw(heros.sprite, heros.position, heros.spriteAfficher, Color.White);
 
+            spriteBatch.DrawString(debugFont, debugTexte, new Vector2(100, 100), Color.White);
             spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }

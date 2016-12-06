@@ -15,8 +15,15 @@ namespace Exercice03
         public Vector2 direction;
         public Vector2 vitesse;
         public Rectangle position;
+        public Rectangle collider;
+        public Vector2 lastPosition;
         public Rectangle spriteAfficher; //Le rectangle affiché à l'écran
         public bool estVivant;
+        public bool toucheFin;
+        public int vie;
+        public int tempsNiveau;
+        public int lastTempsNiveau;
+        public int tempsRecord;
 
         public enum etats { attenteDroite, attenteGauche, runDroite, runGauche, attenteHaut, runHaut, attenteBas, runBas };
         public etats objetState;

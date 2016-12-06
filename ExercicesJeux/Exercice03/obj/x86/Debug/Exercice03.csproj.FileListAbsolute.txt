@@ -22,7 +22,37 @@ D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\Exerci
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\SharpDX.XInput.xml
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
-D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.exe
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.pdb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\DebugFont.xnb
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\bin\Windows\x86\Debug\Content\TexteInterface.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\obj\x86\Debug\Exercice03.exe
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\obj\x86\Debug\Exercice03.pdb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\DebugFont.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\TexteInterface.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\Bomberman.png
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\TileSet.png
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Exercice03.exe
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Exercice03.pdb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache

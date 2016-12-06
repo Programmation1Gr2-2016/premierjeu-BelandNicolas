@@ -5,5 +5,6 @@
   <Config />
   <SourceFiles>
     <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03/Content/DebugFont.spritefont</File>
+    <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03/Content/TexteInterface.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

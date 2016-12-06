@@ -92,11 +92,14 @@ namespace Exercice03
             heros = new GameObjectPlayer();
             heros.estVivant = true;
             heros.toucheFin = false;
+            heros.tempsNiveau = 0f;
+            heros.tempsRecord = 999;
             heros.vie = 100;
+            heros.nombreEssaie = 1;
             heros.vitesse = new Vector2(5, 5);
             heros.direction = Vector2.Zero;
             heros.objetState = GameObjectPlayer.etats.attenteDroite;
-            heros.position = new Rectangle(128, 128, 120, 128);   //Position initiale de Bomberman
+            heros.position = new Rectangle(128, 126, 120, 128);   //Position initiale de Bomberman
             heros.collider = new Rectangle(heros.position.X + 2, heros.position.Y + 58, 116, 70);
             heros.lastPosition.X = heros.position.X;
             heros.lastPosition.Y = heros.position.Y;
@@ -285,11 +288,12 @@ namespace Exercice03
                 {
                     heros.estVivant = false;
                 }
-                if (tuileEnd.Intersects(heros.collider) && finNiveau == false)
+                if (tuileEnd.Intersects(heros.collider) && finNiveau == false) //Arrive à la fin
                 {
                     heros.toucheFin = true;
                     finNiveau = true;
-                    if (heros.tempsNiveau > heros.tempsRecord)
+                    heros.nombreEssaieReussi++;
+                    if (heros.tempsNiveau < heros.tempsRecord)
                     {
                         heros.tempsRecord = heros.tempsNiveau;
                     }
@@ -297,11 +301,13 @@ namespace Exercice03
                 else if (finNiveau == true && keys.IsKeyDown(Keys.T))
                 {
                     heros.position.X = 128;
-                    heros.position.Y = 128;
+                    heros.position.Y = 126;
                     finNiveau = false;
+                    heros.toucheFin = false;
+                    heros.tempsNiveau = 0f;
+                    heros.vie = 100;
+                    heros.nombreEssaie++;
                 }
-                
-
             }
             #endregion
             #region Heros est mort
@@ -313,12 +319,17 @@ namespace Exercice03
                     heros.position.Y = 128;
                     heros.vie = 100;
                     heros.estVivant = true;
+                    heros.tempsNiveau = 0f;
+                    heros.nombreEssaie++;
                 }
             }
             #endregion
             // TODO: Add your update logic here
 
-
+            if (finNiveau == false && heros.estVivant == true)
+            {
+                heros.tempsNiveau += (float)gameTime.ElapsedGameTime.TotalSeconds; 
+            }
 
             heros.Update(gameTime);
             previousKeys = keys;
@@ -350,7 +361,7 @@ namespace Exercice03
             }
             if (heros.toucheFin == true)
             {
-                spriteBatch.DrawString(statsInterface.texteStats, "Reussi!\nTemps : " + heros.tempsNiveau + "\nRecord : " + heros.tempsRecord, new Vector2(fenetre.Center.X - 500, fenetre.Center.Y - 200), Color.White);
+                spriteBatch.DrawString(statsInterface.texteStats, "Reussi!\nTemps : " + heros.tempsNiveau + "\nRecord : " + heros.tempsRecord + "\nNombre essaie : " + heros.nombreEssaie + "\nNombre reussi : " + heros.nombreEssaieReussi, new Vector2(fenetre.Center.X - 500, fenetre.Center.Y - 200), Color.White);
             }
 
             spriteBatch.DrawString(debugFont, debugTexte, new Vector2(100, 100), Color.White);

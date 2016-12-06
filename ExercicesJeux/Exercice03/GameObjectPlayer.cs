@@ -21,9 +21,10 @@ namespace Exercice03
         public bool estVivant;
         public bool toucheFin;
         public int vie;
-        public int tempsNiveau;
-        public int lastTempsNiveau;
-        public int tempsRecord;
+        public int nombreEssaie;
+        public int nombreEssaieReussi;
+        public float tempsNiveau;
+        public float tempsRecord;
 
         public enum etats { attenteDroite, attenteGauche, runDroite, runGauche, attenteHaut, runHaut, attenteBas, runBas };
         public etats objetState;

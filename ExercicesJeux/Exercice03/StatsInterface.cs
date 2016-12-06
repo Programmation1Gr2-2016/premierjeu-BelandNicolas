@@ -21,6 +21,7 @@ namespace Exercice03
             spriteBatch.DrawString(texteStats, "Vie : " + heros.vie, new Vector2(Settings.SCREEN_WIDTH_TILES / 4, Settings.SCREEN_HEIGHT_TILES - GameObjectTile.HAUTEUR_STATS_ZONE / 2 - 100), Color.White);
             spriteBatch.DrawString(texteStats, "Temps : " + heros.tempsNiveau, new Vector2(Settings.SCREEN_WIDTH_TILES / 4, Settings.SCREEN_HEIGHT_TILES - GameObjectTile.HAUTEUR_STATS_ZONE / 2 + 30), Color.White);
             spriteBatch.DrawString(texteStats, "Record : " + heros.tempsRecord, new Vector2(Settings.SCREEN_WIDTH_TILES / 1.7f, Settings.SCREEN_HEIGHT_TILES - GameObjectTile.HAUTEUR_STATS_ZONE / 2 - 100), Color.White);
+            spriteBatch.DrawString(texteStats, "Nombre essaie : " + heros.nombreEssaie, new Vector2(Settings.SCREEN_WIDTH_TILES / 1.7f, Settings.SCREEN_HEIGHT_TILES - GameObjectTile.HAUTEUR_STATS_ZONE / 2 + 30), Color.White);
         }
     }
 }

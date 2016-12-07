@@ -93,7 +93,7 @@ namespace Exercice03
             heros.estVivant = true;
             heros.toucheFin = false;
             heros.tempsNiveau = 0f;
-            heros.tempsRecord = 999;
+            heros.tempsRecord = 9999;
             heros.vie = 100;
             heros.nombreEssaie = 1;
             heros.vitesse = new Vector2(5, 5);
@@ -278,7 +278,7 @@ namespace Exercice03
 
                 foreach (Rectangle tuileDanger in tuileDanger)
                 {
-                    if (tuileDanger.Intersects(heros.collider))
+                    if (tuileDanger.Intersects(heros.collider) && finNiveau == false)
                     {
                         heros.vie--;
                     }
@@ -361,7 +361,7 @@ namespace Exercice03
             }
             if (heros.toucheFin == true)
             {
-                spriteBatch.DrawString(statsInterface.texteStats, "Reussi!\nTemps : " + heros.tempsNiveau + "\nRecord : " + heros.tempsRecord + "\nNombre essaie : " + heros.nombreEssaie + "\nNombre reussi : " + heros.nombreEssaieReussi, new Vector2(fenetre.Center.X - 500, fenetre.Center.Y - 200), Color.White);
+                spriteBatch.DrawString(statsInterface.texteStats, "Reussi!\nTemps : " + heros.tempsNiveau + "\nRecord : " + heros.tempsRecord + "\nNombre essaie : " + heros.nombreEssaie + "\nNombre reussi : " + heros.nombreEssaieReussi + "\nAppuis sur T pour reeseyer!", new Vector2(fenetre.Center.X - 500, fenetre.Center.Y - 200), Color.White);
             }
 
             spriteBatch.DrawString(debugFont, debugTexte, new Vector2(100, 100), Color.White);

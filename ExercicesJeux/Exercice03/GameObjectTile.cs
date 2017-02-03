@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Exercice03
@@ -21,7 +22,10 @@ namespace Exercice03
 
         //La texture tileLayer
         public Texture2D texture;
+        public Texture2D texturePorte;
         public Vector2 position;
+
+        public TilesSet.Door tileDoor;
 
         public Rectangle rectSource = new Rectangle(0, 0, 128, 128);
 
@@ -31,6 +35,12 @@ namespace Exercice03
         public Rectangle rectGazon = new Rectangle(0, 0, 128, 128);
         public Rectangle rectEnd = new Rectangle(256, 0, 128, 128);
         public Rectangle rectDanger = new Rectangle(522, 0, 128, 128);
+        public Rectangle rectPorte = new Rectangle(0, 0, 32, 32);
+
+        public virtual void GenerateTiles()
+        {
+            tileDoor = new TilesSet.Door(texturePorte, false);
+        }
 
         //La carte est affiché
         public int[,] map =
@@ -45,7 +55,7 @@ namespace Exercice03
             {1,1,1,1,1,1,1,2,1,1,3,1,3,5,3,3,3,1,1,1 },
             {1,1,2,1,3,3,3,5,3,3,3,1,3,1,1,1,3,2,1,1 },
             {1,1,1,1,3,1,1,1,1,3,1,2,2,1,1,3,3,2,1,1 },
-            {1,1,2,1,5,1,1,2,1,3,1,1,1,3,3,3,1,1,1,1 },
+            {1,1,2,1,6,1,1,2,1,3,1,1,1,3,3,3,1,1,1,1 },
             {1,3,5,3,3,3,3,1,1,3,3,5,3,3,1,5,3,3,1,1 },
             {1,3,1,1,1,1,3,1,1,1,2,1,1,1,1,1,1,5,1,1 },
             {1,3,5,3,3,1,3,3,3,3,1,3,1,3,1,1,1,1,1,1 },
@@ -80,6 +90,10 @@ namespace Exercice03
                             break;
                         case 5:
                             spriteBatch.Draw(texture, position, rectDanger, Color.White);
+                            break;
+                        case 6:
+                            spriteBatch.Draw(tileDoor.Texture, new Rectangle((int)position.X,(int)position.Y, rectSource.Width,rectSource.Height), rectPorte, Color.White);
+                            
                             break;
                     }
                 }

@@ -4,7 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03/Content/DebugFont.spritefont</File>
-    <File>D:/Doc Nick/Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03/Content/TexteInterface.spritefont</File>
+    <File>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03 (1)/Content/DebugFont.spritefont</File>
+    <File>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03 (1)/Content/TexteInterface.spritefont</File>
+    <File>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03 (1)/Content/Sounds/Fast_Lane.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

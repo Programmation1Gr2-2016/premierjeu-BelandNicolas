@@ -25,6 +25,7 @@ namespace Exercice03
         public int nombreEssaieReussi;
         public float tempsNiveau;
         public float tempsRecord;
+        public int itemKey;
 
         public enum etats { attenteDroite, attenteGauche, runDroite, runGauche, attenteHaut, runHaut, attenteBas, runBas };
         public etats objetState;

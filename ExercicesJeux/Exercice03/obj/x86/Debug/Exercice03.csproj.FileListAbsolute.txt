@@ -56,3 +56,7 @@ C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNico
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03\obj\x86\Debug\Exercice03.csprojResolveAssemblyReference.cache
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\Sounds\Fast_Lane.wma
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\Sounds\Fast_Lane.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\KeyItem.png
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice03 (1)\bin\Windows\x86\Debug\Content\door.png

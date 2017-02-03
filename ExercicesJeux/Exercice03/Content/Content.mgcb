@@ -25,3 +25,9 @@
 /processorParam:TextureFormat=Compressed
 /build:TexteInterface.spritefont
 
+#begin Sounds/Fast_Lane.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/Fast_Lane.mp3
+

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Timers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input;
 
 namespace Exercice03
@@ -26,6 +28,8 @@ namespace Exercice03
         KeyboardState previousKeys = new KeyboardState();
         Rectangle fenetre;
 
+        Audio listSounds;
+
         Texture2D test;
         // Fond de tuiles
         GameObjectTile fond;
@@ -33,8 +37,11 @@ namespace Exercice03
         Rectangle[,] tuileDestroy = new Rectangle[GameObjectTile.COLONNE, GameObjectTile.LIGNE];
         Rectangle tuileEnd;
         Rectangle[,] tuileDanger = new Rectangle[GameObjectTile.COLONNE, GameObjectTile.LIGNE];
+        Rectangle[,] tuilePorte = new Rectangle[GameObjectTile.COLONNE, GameObjectTile.LIGNE];
         GameObjectPlayer heros;
         StatsInterface statsInterface = new StatsInterface();
+
+        Items key;
 
         public Game1()
         {
@@ -76,19 +83,24 @@ namespace Exercice03
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // TODO: use this.Content to load your game content here
             fenetre = graphics.GraphicsDevice.Viewport.Bounds;
             fenetre.Width = Settings.SCREEN_WIDTH_TILES;
             fenetre.Height = Settings.SCREEN_HEIGHT_TILES;
 
             debugFont = Content.Load<SpriteFont>("DebugFont");
             test = Content.Load<Texture2D>("TileSet.png");
-            // TODO: use this.Content to load your game content here
+
             fond = new GameObjectTile();
             fond.texture = Content.Load<Texture2D>("TileSet.png");
+            fond.texturePorte = Content.Load<Texture2D>("door.png");
+            fond.GenerateTiles();
+
             statsInterface.picture = Content.Load<Texture2D>("Bomberman.png");
             statsInterface.texteStats = Content.Load<SpriteFont>("TexteInterface");
 
-
+            #region GÉNÉRATION DU HÉROS
             heros = new GameObjectPlayer();
             heros.estVivant = true;
             heros.toucheFin = false;
@@ -96,6 +108,7 @@ namespace Exercice03
             heros.tempsRecord = 9999;
             heros.vie = 100;
             heros.nombreEssaie = 1;
+            heros.itemKey = 0;
             heros.vitesse = new Vector2(5, 5);
             heros.direction = Vector2.Zero;
             heros.objetState = GameObjectPlayer.etats.attenteDroite;
@@ -103,7 +116,8 @@ namespace Exercice03
             heros.collider = new Rectangle(heros.position.X + 2, heros.position.Y + 58, 116, 70);
             heros.lastPosition.X = heros.position.X;
             heros.lastPosition.Y = heros.position.Y;
-            heros.sprite = Content.Load<Texture2D>("Bomberman.png");
+            heros.sprite = Content.Load<Texture2D>("Bomberman.png"); 
+            #endregion
 
             //GÉNÉRER LES BOITES DE COLLISION DE CHAQUE CASE
 
@@ -144,12 +158,37 @@ namespace Exercice03
                             tuileDanger[colonne, ligne].Width = GameObjectTile.LARGEUR_TUILE;
                             tuileDanger[colonne, ligne].Height = GameObjectTile.HAUTEUR_TUILE;
                             break;
+                        case 6:
+                            tuilePorte[colonne, ligne] = new Rectangle();
+                            tuilePorte[colonne, ligne].X = colonne * GameObjectTile.LARGEUR_TUILE;
+                            tuilePorte[colonne, ligne].Y = ligne * GameObjectTile.HAUTEUR_TUILE;
+                            tuilePorte[colonne, ligne].Width = GameObjectTile.LARGEUR_TUILE;
+                            tuilePorte[colonne, ligne].Height = GameObjectTile.HAUTEUR_TUILE;
+                            break;
                         default:
                             break;
                     }
 
                 }
             }
+            #endregion
+
+            #region GÉNÉRATION DES SONS
+            listSounds = new Audio();
+            Audio.LoadSounds(Content);
+            Song sounds = Audio.Song["Fast_Lane"];
+            MediaPlayer.Volume = 0.1f;
+            MediaPlayer.Play(sounds);
+            #endregion
+
+            #region GÉNÉRATION DES ITEMS
+            key = new Items();
+            key.sprite = Content.Load<Texture2D>("KeyItem.png");
+            key.collision.Width = GameObjectTile.LARGEUR_TUILE;
+            key.collision.Height = GameObjectTile.HAUTEUR_TUILE;
+            key.collision.X = 13 * GameObjectTile.LARGEUR_TUILE;
+            key.collision.Y = 3 * GameObjectTile.HAUTEUR_TUILE;
+            key.isPickUp = false; 
             #endregion
         }
 
@@ -175,10 +214,10 @@ namespace Exercice03
                 Exit();
             #region Hero en vie
 
-            if (heros.estVivant)
+            if (heros.estVivant) // Tout ce qu'il peut faire si il est en vie
             {
                 #region Mouvement Horizontale
-                if (keys.IsKeyDown(Keys.D))
+                if (keys.IsKeyDown(Keys.D)) //Mouvement vers là droite
                 {
                     heros.direction.X = 2;
                     heros.objetState = GameObjectPlayer.etats.runDroite;
@@ -188,7 +227,7 @@ namespace Exercice03
                     heros.direction.X = 0;
                     heros.objetState = GameObjectPlayer.etats.attenteDroite;
                 }
-                if (keys.IsKeyDown(Keys.A))
+                if (keys.IsKeyDown(Keys.A)) //Mouvement vers là gauche
                 {
                     heros.direction.X = -2;
                     heros.objetState = GameObjectPlayer.etats.runGauche;
@@ -217,6 +256,17 @@ namespace Exercice03
                     {
                         heros.position.X = (int)heros.lastPosition.X;
                         heros.collider.X = heros.position.X + 2;
+                    }
+                }
+                foreach (Rectangle porte in tuilePorte)
+                {
+                    if (porte.Intersects(heros.collider) && (heros.direction.X == 2 || heros.direction.X == -2) && heros.itemKey == 0)
+                    {
+                        if (fond.tileDoor.isOpen == false)
+                        {
+                            heros.position.X = (int)heros.lastPosition.X;
+                            heros.collider.X = heros.position.X + 2; 
+                        }
                     }
                 }
 
@@ -269,6 +319,17 @@ namespace Exercice03
                         heros.collider.Y = heros.position.Y + 59;
                     }
                 }
+                foreach (Rectangle porte in tuilePorte)
+                {
+                    if (porte.Intersects(heros.collider) && (heros.direction.Y == 2 || heros.direction.Y == -2) && heros.itemKey == 0)
+                    {
+                        if (fond.tileDoor.isOpen == false)
+                        {
+                            heros.position.Y = (int)heros.lastPosition.Y;
+                            heros.collider.Y = heros.position.Y + 59; 
+                        }
+                    }
+                }
 
                 if (heros.position.Y < fenetre.Top || heros.position.Bottom > fenetre.Bottom) //Bord de fenêtre
                 {
@@ -276,6 +337,7 @@ namespace Exercice03
                 }
                 #endregion
 
+                #region MultiDétection
                 foreach (Rectangle tuileDanger in tuileDanger)
                 {
                     if (tuileDanger.Intersects(heros.collider) && finNiveau == false)
@@ -298,7 +360,7 @@ namespace Exercice03
                         heros.tempsRecord = heros.tempsNiveau;
                     }
                 }
-                else if (finNiveau == true && keys.IsKeyDown(Keys.T))
+                else if (finNiveau == true && keys.IsKeyDown(Keys.T)) //Recommencé niveau après avoir touché le block de fin
                 {
                     heros.position.X = 128;
                     heros.position.Y = 126;
@@ -307,7 +369,27 @@ namespace Exercice03
                     heros.tempsNiveau = 0f;
                     heros.vie = 100;
                     heros.nombreEssaie++;
+                    heros.itemKey = 0;
+                    key.isPickUp = false;
+                    fond.tileDoor.isOpen = false;
                 }
+                if (key.collision.Intersects(heros.collider) && key.isPickUp == false) //Prendre la clé
+                {
+                    key.isPickUp = true;
+                    heros.itemKey += 1;
+                }
+                if (heros.itemKey > 0) //Quand il à au moins 1 clé
+                {
+                    foreach (Rectangle porte in tuilePorte)
+                    {
+                        if (porte.Intersects(heros.collider)) //Touche la porte et la débarer
+                        {
+                            heros.itemKey = 0;
+                            fond.tileDoor.isOpen = true;
+                        }
+                    }
+                }
+                #endregion
             }
             #endregion
             #region Heros est mort
@@ -321,6 +403,9 @@ namespace Exercice03
                     heros.estVivant = true;
                     heros.tempsNiveau = 0f;
                     heros.nombreEssaie++;
+                    heros.itemKey = 0;
+                    key.isPickUp = false;
+                    fond.tileDoor.isOpen = false;
                 }
             }
             #endregion
@@ -328,7 +413,7 @@ namespace Exercice03
 
             if (finNiveau == false && heros.estVivant == true)
             {
-                heros.tempsNiveau += (float)gameTime.ElapsedGameTime.TotalSeconds; 
+                heros.tempsNiveau += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
             heros.Update(gameTime);
@@ -351,6 +436,10 @@ namespace Exercice03
 
 
             fond.Draw(spriteBatch);
+            if (!key.isPickUp)
+            {
+                spriteBatch.Draw(key.sprite, key.collision, Color.White);
+            }
             if (heros.estVivant)
             {
                 spriteBatch.Draw(heros.sprite, heros.position, heros.spriteAfficher, Color.White);
@@ -369,7 +458,7 @@ namespace Exercice03
             //{
             //    spriteBatch.Draw(debugFont.Texture, tuile, Color.Red);
             //}
-            statsInterface.Draw(spriteBatch, heros, gameTime);
+            statsInterface.Draw(spriteBatch, heros, gameTime, key.sprite, heros.itemKey);
             spriteBatch.End();
 
             base.Draw(gameTime);

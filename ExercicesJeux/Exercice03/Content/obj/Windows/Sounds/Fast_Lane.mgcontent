@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03 (1)/Content/Sounds/Fast_Lane.mp3</SourceFile>
+  <SourceTime>2016-12-28T14:24:42.119471-05:00</SourceTime>
+  <DestFile>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03 (1)/Content/bin/Windows/Sounds/Fast_Lane.xnb</DestFile>
+  <DestTime>2016-12-28T14:29:47.4523385-05:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2016-03-30T02:36:08-04:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>C:/Users/falco/Google Drive/Programmation 1/Programmation1/premierjeu-BelandNicolas/ExercicesJeux/Exercice03 (1)/Content/bin/Windows/Sounds/Fast_Lane.wma</string>
+  </BuildOutput>
+</PipelineBuildEvent>

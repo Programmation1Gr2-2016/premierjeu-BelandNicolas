@@ -63,3 +63,4 @@ C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNico
 C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\TimerScore.xnb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\TimerScore.xnb
 D:\Doc Nick\Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\GameOver.xnb
+C:\Users\falco\Google Drive\Programmation 1\Programmation1\premierjeu-BelandNicolas\ExercicesJeux\Exercice02\bin\Windows\x86\Debug\Content\GameOver.xnb
